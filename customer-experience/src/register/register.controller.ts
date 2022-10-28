@@ -1,4 +1,5 @@
-import { CreateUsersDTO } from './dto/CreateUsers';
+import { CreateUserDto } from './dto/CreateUser';
+import { UpdateRegisterDto } from './dto/UpdateUser';
 import { Body, Controller, Post } from '@nestjs/common';
 import { RegisterService } from './register.service';
 
@@ -7,7 +8,7 @@ export class RegisterController {
   constructor(private readonly registerService: RegisterService) {}
 
   @Post()
-  async register(@Body() req: CreateUsersDTO): Promise<string> {
+  async register(@Body() req: CreateUserDto): Promise<string> {
     return this.registerService.register(req);
   }
 }
